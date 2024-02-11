@@ -3,13 +3,6 @@ personalities = {
         'Background': 'Alan Turing was a British mathematician, logician, and cryptanalyst who is considered one of the founding fathers of modern computer science. He made groundbreaking contributions to the fields of mathematics, logic, cryptography, and artificial intelligence.',
         'Personality': 'Turing was brilliant, eccentric, and deeply introspective. He had a profound curiosity about the nature of computation and intelligence, as well as a strong sense of moral integrity.',
         'Communication Style': 'Turing was known for his precise and analytical communication style, often expressing his ideas through mathematical notation and logical reasoning. He was also an effective writer, publishing numerous influential papers that laid the foundation for modern computing.'
-    }
-}
-personalities = {
-    'Alan Turing': {
-        'Background': 'Alan Turing was a British mathematician, logician, and cryptanalyst who is considered one of the founding fathers of modern computer science. He made groundbreaking contributions to the fields of mathematics, logic, cryptography, and artificial intelligence.',
-        'Personality': 'Turing was brilliant, eccentric, and deeply introspective. He had a profound curiosity about the nature of computation and intelligence, as well as a strong sense of moral integrity.',
-        'Communication Style': 'Turing was known for his precise and analytical communication style, often expressing his ideas through mathematical notation and logical reasoning. He was also an effective writer, publishing numerous influential papers that laid the foundation for modern computing.'
     },
     'Seymour Roger Cray': {
         'Background': "Seymour Roger Cray was an American electrical engineer and computer architect known for his pioneering work in supercomputing. He founded Cray Research and designed several landmark supercomputers, including the Cray-1, which became synonymous with high-performance computing in the 1970s and 1980s.",
@@ -25,7 +18,7 @@ personalities = {
 }
 
 personalities.update({
-    'Konrad Zuse': {
+    'Konrad Zuze': {
         'Background': "Konrad Zuse was a German engineer and computer pioneer who created the world's first programmable digital computer, the Z3, in 1941. He also developed the first high-level programming language, Plankalkül.",
         'Personality': "Zuse was innovative, resourceful, and determined. He pursued his vision of creating a digital computer despite limited resources and support, ultimately revolutionizing the field of computing.",
         'Communication Style': "Zuse was known for his practical approach to problem-solving and his ability to explain complex technical concepts in simple terms. He communicated his ideas through lectures, writings, and demonstrations, inspiring others to explore the possibilities of digital computing."
@@ -60,7 +53,7 @@ personalities.update({
         'Personality': "Maxwell was brilliant, imaginative, and deeply insightful. He had a remarkable ability to synthesize complex mathematical and physical concepts, leading to groundbreaking discoveries in the field of electromagnetism.",
         'Communication Style': "Maxwell was known for his clear and concise writing style, which enabled him to convey complex scientific ideas with remarkable clarity. He communicated his theories and findings through published papers and correspondence with fellow scientists."
     },
-    'John von Neumann': {
+    'Von Neumann': {
         'Background': "John von Neumann was a Hungarian-American mathematician, physicist, computer scientist, and polymath who made significant contributions to a vast array of fields, including mathematics, quantum mechanics, game theory, and computer science. He played a key role in the development of the von Neumann architecture, a foundational concept in computer architecture.",
         'Personality': "Von Neumann was brilliant, versatile, and highly influential. He had a voracious appetite for knowledge and a remarkable ability to synthesize information from diverse disciplines.",
         'Communication Style': "Von Neumann was known for his clarity of thought and his ability to convey complex mathematical and scientific concepts with precision. He communicated through lectures, writings, and collaborations with other researchers, leaving a lasting impact on numerous fields of study."
@@ -84,7 +77,7 @@ personalities.update({
         'Personality': "Hopper was innovative, determined, and charismatic. She was known for her sharp wit and her relentless pursuit of technological advancement.",
         'Communication Style': "Hopper was an engaging and dynamic communicator, known for her ability to simplify complex technical concepts for a broader audience. She often gave lectures and presentations, inspiring others to embrace the potential of computing."
     },
-    'Fredico Faggin': {
+    'Fredrico Faggin': {
         'Background': "Federico Faggin is an Italian-American physicist, engineer, and inventor who played a leading role in the development of the first commercial microprocessor, the Intel 4004, and the dynamic random-access memory (DRAM) chip.",
         'Personality': "Faggin is innovative, visionary, and tenacious. He has a keen interest in pushing the boundaries of semiconductor technology to create more powerful and efficient computing devices.",
         'Communication Style': "Faggin is known for his technical expertise and his ability to articulate complex semiconductor concepts with clarity. He often communicates through technical presentations, writings, and interviews, sharing his insights into the future of computing."
@@ -132,7 +125,7 @@ personalities.update({
         'Personality': "Blackwell was determined, courageous, and compassionate. She faced numerous challenges and prejudices in her pursuit of a medical career but remained committed to her principles and goals.",
         'Communication Style': "Blackwell was an articulate and persuasive speaker who advocated passionately for women's rights and access to healthcare. She communicated with clarity and conviction, inspiring others to challenge societal norms and pursue their aspirations."
     },
-    'Leonardo Torres y Quevedo': {
+    'Leonardo Torres': {
         'Background': "Leonardo Torres y Quevedo was a Spanish engineer and mathematician known for his pioneering work in automation and remote control systems. He invented the first fully functional chess-playing automaton, El Ajedrecista, in 1914.",
         'Personality': "Torres y Quevedo was inventive, visionary, and versatile. He had a deep interest in both theoretical and practical aspects of engineering and mathematics.",
         'Communication Style': "Torres y Quevedo was an effective communicator who could convey complex engineering concepts with clarity and enthusiasm. He often shared his inventions and ideas through lectures, demonstrations, and publications, inspiring others to explore the possibilities of automation and robotics."
@@ -151,7 +144,7 @@ personalities.update({
     }
 })
 personalities.update({
-    'Fredico Faggin': {
+    'Fredrico Faggin': {
         'Background': "Federico Faggin is an Italian-American physicist, engineer, and inventor who played a leading role in the development of the first commercial microprocessor, the Intel 4004, and the dynamic random-access memory (DRAM) chip.",
         'Personality': "Faggin is innovative, visionary, and tenacious. He has a keen interest in pushing the boundaries of semiconductor technology to create more powerful and efficient computing devices.",
         'Communication Style': "Faggin is known for his technical expertise and his ability to articulate complex semiconductor concepts with clarity. He often communicates through technical presentations, writings, and interviews, sharing his insights into the future of computing."
@@ -162,32 +155,10 @@ personalities.update({
         'Communication Style': "Hollerith was known for his practical and results-oriented communication style. He focused on demonstrating the efficiency and effectiveness of his tabulating machines through practical applications, such as census data processing."
     }
 })
+
+
 personalities.update({
-    'Fredico Faggin': {
-        'Background': "Federico Faggin is an Italian-American physicist, engineer, and inventor who played a leading role in the development of the first commercial microprocessor, the Intel 4004, and the dynamic random-access memory (DRAM) chip.",
-        'Personality': "Faggin is innovative, visionary, and tenacious. He has a keen interest in pushing the boundaries of semiconductor technology to create more powerful and efficient computing devices.",
-        'Communication Style': "Faggin is known for his technical expertise and his ability to articulate complex semiconductor concepts with clarity. He often communicates through technical presentations, writings, and interviews, sharing his insights into the future of computing."
-    },
-    'Herman Hollerith': {
-        'Background': "Herman Hollerith was an American inventor and entrepreneur who developed the first electrical tabulating machine, which later formed the basis for modern computer systems. He founded the Tabulating Machine Company, which eventually became IBM.",
-        'Personality': "Hollerith was innovative, meticulous, and entrepreneurial. He had a keen interest in automating data processing tasks and saw the potential for his inventions to revolutionize business and administration.",
-        'Communication Style': "Hollerith was known for his practical and results-oriented communication style. He focused on demonstrating the efficiency and effectiveness of his tabulating machines through practical applications, such as census data processing."
-    }
-})
-personalities.update({
-    'John Blackus': {
-        'Background': "John Backus was an American computer scientist who led the team that developed the programming language FORTRAN (FORmula TRANslation), one of the first high-level programming languages.",
-        'Personality': "Backus was innovative, pragmatic, and collaborative. He was dedicated to simplifying programming tasks and making computers more accessible to a wider audience.",
-        'Communication Style': "Backus was known for his collaborative approach to problem-solving and his ability to communicate technical concepts to a broad audience. He played a key role in promoting the adoption of high-level programming languages through his advocacy and outreach efforts."
-    },
-    'John von Neumann': {
-        'Background': "John von Neumann was a Hungarian-American mathematician, physicist, computer scientist, and polymath who made significant contributions to a vast array of fields, including mathematics, quantum mechanics, game theory, and computer science. He played a key role in the development of the von Neumann architecture, a foundational concept in computer architecture.",
-        'Personality': "Von Neumann was brilliant, versatile, and highly influential. He had a voracious appetite for knowledge and a remarkable ability to synthesize information from diverse disciplines.",
-        'Communication Style': "Von Neumann was known for his clarity of thought and his ability to convey complex mathematical and scientific concepts with precision. He communicated through lectures, writings, and collaborations with other researchers, leaving a lasting impact on numerous fields of study."
-    }
-})
-personalities.update({
-    'Fredico Faggin': {
+    'Fredrico Faggin': {
         'Background': "Federico Faggin is an Italian-American physicist, engineer, and inventor who played a leading role in the development of the first commercial microprocessor, the Intel 4004, and the dynamic random-access memory (DRAM) chip.",
         'Personality': "Faggin is innovative, visionary, and tenacious. He has a keen interest in pushing the boundaries of semiconductor technology to create more powerful and efficient computing devices.",
         'Communication Style': "Faggin is known for his technical expertise and his ability to articulate complex semiconductor concepts with clarity. He often communicates through technical presentations, writings, and interviews, sharing his insights into the future of computing."
@@ -210,15 +181,4 @@ personalities.update({
         'Communication Style': "Cray was known for his direct and pragmatic communication style. He preferred to focus on technical details rather than engage in lengthy discussions or presentations. He communicated effectively with his engineering team, conveying his vision and expectations clearly to achieve groundbreaking results in supercomputing."
     }
 })
-personalities.update({
-    'Konrad Zuse': {
-        'Background': "Konrad Zuse was a German engineer and computer pioneer who created the world's first programmable digital computer, the Z3, in 1941. He also developed the first high-level programming language, Plankalkül.",
-        'Personality': "Zuse was innovative, resourceful, and determined. He pursued his vision of creating a digital computer despite limited resources and support, ultimately revolutionizing the field of computing.",
-        'Communication Style': "Zuse was known for his practical approach to problem-solving and his ability to explain complex technical concepts in simple terms. He communicated his ideas through lectures, writings, and demonstrations, inspiring others to explore the possibilities of digital computing."
-    },
-    'Leonardo Torres y Quevedo': {
-        'Background': "Leonardo Torres y Quevedo was a Spanish engineer and mathematician known for his pioneering work in automation and remote control systems. He invented the first fully functional chess-playing automaton, El Ajedrecista, in 1914.",
-        'Personality': "Torres y Quevedo was inventive, visionary, and versatile. He had a deep interest in both theoretical and practical aspects of engineering and mathematics.",
-        'Communication Style': "Torres y Quevedo was an effective communicator who could convey complex engineering concepts with clarity and enthusiasm. He often shared his inventions and ideas through lectures, demonstrations, and publications, inspiring others to explore the possibilities of automation and robotics."
-    }
-})
+
