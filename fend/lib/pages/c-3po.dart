@@ -1,7 +1,12 @@
 import 'package:fend/pages/character_page.dart';
+import 'dart:io';
 import 'package:fend/pages/chat.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:http/http.dart' as http;
+
+import 'package:http_parser/http_parser.dart';
+
 
 class C3PO extends StatefulWidget {
   const C3PO({super.key});
@@ -55,9 +60,25 @@ class _C3PO extends State<C3PO> {
                 if (result == null) {
                   print("No file selected");
                 } else {
-                  setState(() {});
-                  for (var element in result!.files) {
-                    print(element.name);
+                  // setState(() {});
+                  // for (var element in result!.files) {
+                  //   print(element.name);
+                  // }
+                  File file = File(result!.files.single.path!);
+                  print(file);
+                  var uri = Uri.parse('http://localhost:5000/upload');
+                  var request = http.MultipartRequest('POST', uri)
+                    ..files.add(await http.MultipartFile.fromPath(
+                      'pdf',
+                      file.path,
+                      contentType: MediaType('application', 'pdf'),
+                    ));
+
+                  var response = await request.send();
+                  if (response.statusCode == 200) {
+                    print('PDF uploaded successfully');
+                  } else {
+                    print('Failed to upload PDF');
                   }
                   Navigator.push(context, MaterialPageRoute(builder: (context) => Chat(ai: 'C-3PO'),));
                 }
