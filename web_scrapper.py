@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 from Text_summarization import Summarization
-from lan_detect import language_detection
 
 
 def webScrapper(url):
