@@ -1,3 +1,4 @@
+import 'package:fend/pages/bb8.dart';
 import 'package:fend/pages/c-3po.dart';
 import 'package:fend/pages/character_page.dart';
 import 'package:fend/pages/r2-d2.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const R2D2(),
+      home: const BB8(),
     );
   }
 }
