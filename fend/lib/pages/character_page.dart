@@ -1,4 +1,5 @@
 import 'package:fend/data.dart';
+import 'package:fend/pages/chat.dart';
 import 'package:fend/pages/story.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ class CharacterPage extends StatelessWidget {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const Story()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Chat(index: index)));
             },
             child: Container(
               
