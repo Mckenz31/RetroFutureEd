@@ -2,10 +2,10 @@ import 'package:fend/data.dart';
 import 'package:flutter/material.dart';
 
 class Chat extends StatefulWidget {
+  Chat({super.key, this.index, this.ai});
 
-  Chat({super.key, required this.index});
-
-  int index;
+  int? index;
+  String? ai;
 
   @override
   State<Chat> createState() {
@@ -22,7 +22,7 @@ class _ChatScreen extends State<Chat> {
     // print(widget.index);
     return Scaffold(
       appBar: AppBar(
-        title:  Text(Data().imageDictionary.keys.toList()[widget.index]),
+        title: widget.index != null ? Text(Data().imageDictionary.keys.toList()[widget.index!]) : Text(widget.ai!),
         centerTitle: true,
         // backgroundColor: Colors.blueGrey,
       ),
@@ -37,23 +37,35 @@ class _ChatScreen extends State<Chat> {
                 itemBuilder: (context, index) {
                   final message = messages[index];
                   return Row(
-                    mainAxisAlignment: message.isSentByMe ? MainAxisAlignment.end : MainAxisAlignment.start,
+                    mainAxisAlignment: message.isSentByMe
+                        ? MainAxisAlignment.end
+                        : MainAxisAlignment.start,
                     children: [
-                      if (!message.isSentByMe)
+                      if (!message.isSentByMe) 
                         CircleAvatar(
-                          backgroundImage: AssetImage('assets/characters/${Data().imageDictionary.values.toList()[widget.index]}'),
+                          backgroundImage: widget.index != null ? AssetImage(
+                              'assets/characters/${Data().imageDictionary.values.toList()[widget.index!]}') : AssetImage(
+                              'assets/${widget.ai}.png'),
                           radius: 20,
                         ),
+                      
                       Container(
-                        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 5, horizontal: 10),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 15),
                         decoration: BoxDecoration(
-                          color: message.isSentByMe ? Colors.blue : Colors.grey[300],
+                          color: message.isSentByMe
+                              ? Colors.blue
+                              : Colors.grey[300],
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Text(
                           message.text,
-                          style: TextStyle(color: message.isSentByMe ? Colors.white : Colors.black),
+                          style: TextStyle(
+                              color: message.isSentByMe
+                                  ? Colors.white
+                                  : Colors.black),
                         ),
                       ),
                       if (message.isSentByMe)
@@ -62,13 +74,14 @@ class _ChatScreen extends State<Chat> {
                           backgroundColor: Colors.grey,
                           child: Text(
                             'M',
-                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                     ],
                   );
                 },
-        
               ),
             ),
             Padding(
@@ -96,8 +109,9 @@ class _ChatScreen extends State<Chat> {
   void _sendMessage() {
     if (messageController.text.isNotEmpty) {
       setState(() {
-        messages.insert(0, Message(messageController.text, true));        
-        messages.insert(0, Message("Need to connect it to the backend soon", false)); 
+        messages.insert(0, Message(messageController.text, true));
+        messages.insert(
+            0, Message("Need to connect it to the backend soon", false));
       });
       messageController.clear();
     }
