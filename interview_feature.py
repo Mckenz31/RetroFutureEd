@@ -84,21 +84,11 @@ def conduct_interview(questions):
         tts.save("question.mp3")
         os.system("afplay question.mp3")
         
-  
-        with sr.Microphone() as source:
-            print("Please answer the question. Type 'end' and press Enter to move to the next question.")
-            recognizer.adjust_for_ambient_noise(source)
-            audio = recognizer.listen(source)
-            
-        try:
-          
-            answer = recognizer.recognize_google(audio)
-            print("Answer:", answer)
-            answers[question] = answer
-        except sr.UnknownValueError:
-            print("Sorry, I could not understand your response.")
-        except sr.RequestError as e:
-            print("Error fetching results; {0}".format(e))
+        
+        answer = "dummy text"
+        print("Answer:", answer)
+        answers[question] = answer
+
         
         while True:
             user_input = input("Type 'end' and press Enter to move to the next question: ")
