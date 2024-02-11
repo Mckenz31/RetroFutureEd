@@ -62,8 +62,8 @@ class _R2D2 extends State<R2D2> {
                 hintStyle: const TextStyle(color: Color.fromARGB(255, 95, 93, 216)),
                 suffixIcon: IconButton(
                   icon: const Icon(Icons.send),
-                  onPressed: () async{
-                    await http.post(
+                  onPressed: () {
+                    var result = http.post(
                       Uri.parse('http://localhost:5000/handle_userinput'),
                       headers: <String, String>{
                         'Content-Type': 'application/json; charset=UTF-8',
@@ -72,6 +72,7 @@ class _R2D2 extends State<R2D2> {
                         'title': messageController.text,
                       }),
                     );
+                    print(result);
                     Navigator.push(context, MaterialPageRoute(builder: (context) => Chat(ai: 'R2-D2',)));
                     messageController.clear();     
                   },            

@@ -8,7 +8,7 @@ class Data {
     'Emile Baudot': 'emile_baudot.jpg',
     'Fredrico Faggin': 'fredrico_faggin.jpg',
     'Grace Hopper': 'grace_hopper.jpg',
-    'Herman Hollerit': 'herman_hollerit.jpg',
+    'Herman Hollerith': 'herman_hollerit.jpg',
     'Issac Newton': 'issac_newton.jpg',
     'James Maxwell': 'james_maxwell.jpg',
     'John Backus': 'john_backus.jpg',
