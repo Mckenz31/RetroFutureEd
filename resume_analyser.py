@@ -35,14 +35,14 @@ resume:{resume_info}
 description:{job_description}
 
 I want the response in one single string having the structure
-{{"JD Match":"%","MissingKeywords:[]","Profile Summary":"", "Areas of improvement":""}}
+{{"JD Match":"%","MissingKeywords":[],"Profile Summary":"", "Areas of improvement":""}}
 """
 
 ## streamlit app
-st.title("Smart ATS")
-st.text("Improve Your Resume ATS")
+st.title("TimeBridger AI - Smart ATS")
+st.text("Upload your resume to get an analysis Report")
 jd = st.text_area("Paste the Job Description")
-uploaded_file = st.file_uploader("Upload Your Resume",type="pdf",help="Please uplaod the pdf")
+uploaded_file = st.file_uploader("Upload Your Resume",type="pdf",help="Please upload the pdf")
 
 
 submit = st.button("Submit")
@@ -52,4 +52,12 @@ if submit:
         text=input_pdf_text(uploaded_file)
         formatted_input_prompt = input_prompt.format(resume_info = text, job_description = jd)
         response = get_gemini_repsonse(formatted_input_prompt)
-        st.subheader(response)
+        parsed_response = json.loads(response)
+        
+        st.subheader("Analysis Result:")
+        st.write(f"JD Match: {parsed_response['JD Match']}")
+        st.write(f"Missing Keywords: {', '.join(parsed_response['MissingKeywords'])}")
+        st.write("Profile Summary:")
+        st.write(parsed_response['Profile Summary'])
+        st.write("Areas of Improvement:")
+        st.write('\n'.join(parsed_response['Areas of improvement']))
