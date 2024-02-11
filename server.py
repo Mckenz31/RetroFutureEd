@@ -1,54 +1,83 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
-import openai
-import os
-import json
-
-openai.api_key = "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"
+from dotenv import load_dotenv
+from Text_summarization import Summarization
+from Word_meanings import word_meaning
+from translator import language_translation
+from Chat_with_website import VectorizationURL, ChatWebsite
+from Chat_with_GPT import ChatApp
+from txt_to_speech import T_T_speech
+#pythfrom database import add_word, get_dictionary
 
 app = Flask(__name__)
 CORS(app)
 
-def simulate_conversation(personality, user_messages, bio):
-    messages = [
-        {"role": "system", "content": "You are a chatbot that simulates a conversation with the personality of "+personality+"described. Please respond in a manner consistent with this personality's known communication style. Try to keep it informational as possible. The current person's personality is based of this bio:" + bio}
-    ] + user_messages
-
-    try:
-        response = openai.ChatCompletion.create(
-            model="gpt-4",
-            messages=messages
-        )
-
-        return response.choices[0].message["content"]
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        return ""
-#Members API route
 @app.route("/members", methods=['GET'])
 def members():
     return {"members": ["Member1", "Member2", "Member3"]}
 
-@app.route("/gpt", methods=['POST'])
-def gpt():
+@app.route("/definition", methods=['POST'])
+def definition():
     data = request.get_json()
-    user_question = data.get('question')
-    #return jsonify(user_question)
+    user_word = data.get('word')
+    return jsonify({"response": word_meaning(user_word)}) #return the summarize function here
 
-    #new code------
-    if user_question:
-        textHistory = data.get('textHistory')
-        conversation_history = [{"role": "user", "content": textHistory +" Latest Question: " + user_question}]
-        personality = data.get('personality', "Elon Musk")  # Default personality
-        bio = data.get('bio')
-        
+@app.route("/summarize", methods=['POST'])
+def summarize():
+    data = request.get_json()
+    para = data.get('para')
+    return jsonify({"response": Summarization(para)}) #return the summarize function here.
 
-        response = simulate_conversation(personality, conversation_history, bio)
+@app.route("/translate", methods=['POST'])
+def translate():
+    data = request.get_json()
+    para = data.get('para')
+    language = data.get('lang')
+    return jsonify({"response": language_translation(para, language)}) #return the summarize function here.
 
-        return jsonify({"response": response})
+@app.route("/webchat", methods =['POST'])
+def webchat():
+    data = request.get_json()
+    message = data.get('text')
+    url = data.get('webLink')
+    conversation = VectorizationURL(url)
+    response = ChatWebsite(conversation, message)
+    return jsonify({"response": response})
 
-    return jsonify({"error": "Invalid request"}), 400
+@app.route("/gptchat", methods =['POST'])
+def gptchat():
+    data = request.get_json()
+    message = data.get('text')
+    chat_app = ChatApp()
 
+    assistant_response = chat_app.chat(message)
+    response = assistant_response['content']
 
+    return jsonify({"response": response})
+
+# needs to be edited.
+@app.route("/tts", methods =['POST'])
+def txtSpeech():
+    data = request.get_json()
+    message = data.get('para')
+    T_T_speech(message)
+    audio_path = './read_aloud.mp3'
+    return send_file(audio_path, as_attachment=True)
+
+@app.route("/flashcards", methods=['GET'])
+def flashcards():
+    return([{"term":"Invest", "definition":"To take interest and participate in something"},
+            {"term":"Invest", "definition":"To take interest and participate in something"},
+            {"term":"Invest", "definition":"To take interest and participate in something"},
+            {"term":"Invest", "definition":"To take interest and participate in something"},
+            {"term":"Invest", "definition":"To take interest and participate in something"}])
+
+'''@app.route("/addcard", methods=['POST'])
+def addcard():
+    data = request.get_json()
+    word = data.get('word')
+    definition = data.get('def')
+    add_word(word, definition)
+'''
 if __name__ == "__main__":
     app.run(debug = True)
